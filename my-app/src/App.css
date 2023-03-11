@@ -1,0 +1,54 @@
+@font-face {
+  font-family: Montserrat-SemiBold;
+  src: url(./fonts-Montserrat/Montserrat-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: Roboto-Regular;
+  src: url(./fonts-Roboto/Roboto-Regular.ttf);
+}
+
+.App-Search{
+  margin-top: 2%;
+  margin-left: 1.25%;
+}
+
+.App-Title{
+  font-family: Montserrat-SemiBold;
+  size: 20px;
+  line-height: 22px;
+}
+
+.App-Filter {
+  width: 431px;
+  height: 56px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 7px;
+}
+
+.App-Dropdown{
+  width: 212px;
+  height: 56px;
+  border: 1px solid rgba(121, 121, 121, 0.5);
+  border-radius: 6px;
+  background-color: inherit;
+  color: #797979;
+  font-family: Roboto-Regular;
+  font-size: 14px;
+  line-height: 14px;
+}
+
+.App-Input {
+  width: 212px;
+  height: 52px;
+  border: 1px solid rgba(121, 121, 121, 0.5);
+  border-radius: 6px;
+  background-color: inherit;
+  color: #797979;
+  font-family: Roboto-Regular;
+  font-size: 14px;
+  line-height: 14px;
+}
