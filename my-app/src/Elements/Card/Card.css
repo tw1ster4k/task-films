@@ -1,0 +1,73 @@
+@font-face {
+    font-family: Montserrat-SemiBold;
+    src: url(../../fonts-Montserrat/Montserrat-SemiBold.ttf);
+  }
+
+@font-face {
+    font-family: Montserrat-Regular;
+    src: url(../../fonts-Montserrat/Montserrat-Regular.ttf);
+}
+
+.Card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 190px;
+    height: 400px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 15px rgba(29, 24, 56, 0.1);
+    border-radius: 10px;
+    margin-bottom: 15px;
+    margin-right: 10px;
+}
+
+.Card-Content{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 15px;
+    margin-left: 20px;
+    height: 390px;
+}
+
+
+.Card-Image{
+    margin: 0;
+    width: 150px;
+    height: 225px;
+}
+
+.Card-Title{
+    color: #1D1838;
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-family: Montserrat-SemiBold;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.Card-Genres{
+    color: #1D1838;
+    word-break: break-all;
+    width: 150px;
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-family: Montserrat-Regular;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.Card-Date{
+    color: #1D1838;
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-family: Montserrat-Regular;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+}
