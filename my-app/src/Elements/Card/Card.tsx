@@ -13,7 +13,6 @@ const Card = (Card: Card) => {
     const arr: string[] = [];
     // @ts-ignore
        Card.genres.map((el) => arr.push(el.genre))
-       console.log(arr)
   return (
     <div className={cnCard()}>
         <div className={cnCard("Content")}>
