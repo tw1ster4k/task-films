@@ -10,11 +10,12 @@ function App() {
   const [filter, setFilter] = useState(data)
   const [best, setBest] = useState({data:{name:"",id:'',year:'',description:"",genre:[]}, image:""})
   
+  
 
   const options = [
     {id:0,genre:'Все'},{id:1,genre:'драма'},{id:2,genre:'биография'},{id:3,genre:'история'},{id:4,genre:'фэнтези'},{id:5,genre:'приключения'},{id:6,genre:'боевик'},{id:7,genre:'мультфильм'},{id:8,genre:'комедия'},{id:9,genre:'триллер'},{id:10,genre:'детектив'},{id:11,genre:'фантастика'}
   ];
-  
+
   useEffect(() => {
     const data = localStorage.getItem('myData');
     if (data) {
@@ -53,13 +54,14 @@ function App() {
   }
   
   function BestFilm(id: string) {
+      let arr = data.filter((el) => el.id === Number(id));
+      let img = images.find((image) => image.startsWith(`/static/media/${Number(id)}.`));
+      const film = {data: arr[0], image: img}
+      localStorage.setItem('myData', JSON.stringify(film)); 
+      // @ts-ignore
+      setBest(film) 
 
-    let arr = data.filter((el) => el.id === Number(id));
-    let img = images.find((image) => image.startsWith(`/static/media/${Number(id)}.`));
-    const film = {data: arr[0], image: img}
-    localStorage.setItem('myData', JSON.stringify(film)); 
-    // @ts-ignore
-    setBest(film) 
+
   }
   
   
@@ -103,7 +105,8 @@ function App() {
       <h2 className={cnApp("Title")}>Самый лучший фильм</h2>
           {
             // @ts-ignore
-            <Card title={best.data.name} id={best.data.id} image={best.image} genres={options.filter(({id}) => best.data.genre.includes(id))} date={best.data.year} bestFunct={BestFilm} />  
+            <Card title={best.data.name} id={best.data.id} image={best.image} genres={options.filter(({id}) => best.data.genre.includes(id))} date={best.data.year} bestFunct={BestFilm} /> 
+         
           }
       </div>
     </div>
