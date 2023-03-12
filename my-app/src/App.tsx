@@ -77,6 +77,10 @@ function App() {
           <Card key={index} title={el.name} image={images[el.id-1]} genres={options.filter(({id}) => el.genre.includes(id))} date={el.year} />
         )}
       </div>
+      <div className={cnApp("Best")}>
+      <h2 className={cnApp("Title")}>Самый лучший фильм</h2>
+      
+      </div>
     </div>
   );
 }
