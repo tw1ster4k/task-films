@@ -8,11 +8,23 @@ function App() {
   const cnApp = cn("App")
   const [films, setFilms] = useState(data)
   const [filter, setFilter] = useState(data)
-  console.log(films)
+  const [best, setBest] = useState({data:{name:"",id:'',year:'',description:"",genre:[]}, image:""})
   
+
   const options = [
     {id:0,genre:'Все'},{id:1,genre:'драма'},{id:2,genre:'биография'},{id:3,genre:'история'},{id:4,genre:'фэнтези'},{id:5,genre:'приключения'},{id:6,genre:'боевик'},{id:7,genre:'мультфильм'},{id:8,genre:'комедия'},{id:9,genre:'триллер'},{id:10,genre:'детектив'},{id:11,genre:'фантастика'}
   ];
+  
+  useEffect(() => {
+    const data = localStorage.getItem('myData');
+    if (data) {
+      const parseData = JSON.parse(data)
+      // @ts-ignore
+      setBest(parseData);
+    }
+  }, []);
+  console.log(best)
+  
 
   const images: string[] = [];
 
@@ -38,6 +50,16 @@ function App() {
       setFilms(arr)
       setFilter(arr)
     }
+  }
+  
+  function BestFilm(id: string) {
+
+    let arr = data.filter((el) => el.id === Number(id));
+    let img = images.find((image) => image.startsWith(`/static/media/${Number(id)}.`));
+    const film = {data: arr[0], image: img}
+    localStorage.setItem('myData', JSON.stringify(film)); 
+    // @ts-ignore
+    setBest(film) 
   }
   
   
@@ -74,12 +96,15 @@ function App() {
       <div className={cnApp("Content")}>
         {films.map((el,index)  =>
         // @ts-ignore
-          <Card key={index} title={el.name} image={images[el.id-1]} genres={options.filter(({id}) => el.genre.includes(id))} date={el.year} />
+          <Card key={index} title={el.name} id={el.id} image={images[el.id-1]} genres={options.filter(({id}) => el.genre.includes(id))} date={el.year} bestFunct={BestFilm} />
         )}
       </div>
       <div className={cnApp("Best")}>
       <h2 className={cnApp("Title")}>Самый лучший фильм</h2>
-      
+          {
+            // @ts-ignore
+            <Card title={best.data.name} id={best.data.id} image={best.image} genres={options.filter(({id}) => best.data.genre.includes(id))} date={best.data.year} bestFunct={BestFilm} />  
+          }
       </div>
     </div>
   );
